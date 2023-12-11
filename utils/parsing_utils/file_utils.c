@@ -6,7 +6,7 @@
 /*   By: dmuller <dmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 17:33:38 by dmuller           #+#    #+#             */
-/*   Updated: 2023/12/09 21:24:03 by dmuller          ###   ########.fr       */
+/*   Updated: 2023/12/11 17:38:47 by dmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,38 @@ int	check_cub(char *path)
 		return (1);
 	printf ("Error\nMap is not a .cub file.\n");
 	return (0);
+}
+
+int check_file(char *path)
+{
+	int	fd;
+	
+	if((fd = open(path, O_RDONLY)) == -1)
+	{
+		printf("Error\nCan't open the file\n");
+		close(fd);
+	}
+	else
+	{
+		close(fd);
+		return(1);
+	}
+	return(0);
+}
+
+int check_directory(char *path)
+{
+	int fd;
+
+	if((fd = open(path, __O_DIRECTORY)) != -1)
+	{
+		printf("Error\nfile is a directory\n");
+		close(fd);
+	}
+	else
+	{
+		close(fd);
+		return(1);
+	}
+	return(0);
 }

@@ -6,7 +6,7 @@
 /*   By: dmuller <dmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 11:09:44 by dmuller           #+#    #+#             */
-/*   Updated: 2023/12/09 21:31:52 by dmuller          ###   ########.fr       */
+/*   Updated: 2023/12/11 17:39:05 by dmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
 
 /* ================== */
 
@@ -49,6 +50,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 /* ---- [ file_utils.c ] ---- */
 
 int		check_cub(char *path);
+int		check_file(char *path);
+int		check_directory(char *path);
 
 /* ================== */
 

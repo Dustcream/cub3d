@@ -6,7 +6,7 @@
 /*   By: dmuller <dmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 17:33:33 by dmuller           #+#    #+#             */
-/*   Updated: 2023/12/09 21:27:48 by dmuller          ###   ########.fr       */
+/*   Updated: 2023/12/11 17:39:28 by dmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ int	check_map(char *path)
 {
 	if (!check_cub(path))
 		return (0);
+	if(!check_file(path))
+		return(0);
+	if(!check_directory(path))
+		return(0);
 	else
 		return (1);
 }
