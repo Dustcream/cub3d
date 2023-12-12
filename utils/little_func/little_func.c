@@ -6,21 +6,11 @@
 /*   By: dmuller <dmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 19:04:24 by dmuller           #+#    #+#             */
-/*   Updated: 2023/12/09 21:26:15 by dmuller          ###   ########.fr       */
+/*   Updated: 2023/12/12 12:15:54 by dmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
 
 int	ft_strcmp(char *s1, char *s2)
 {
