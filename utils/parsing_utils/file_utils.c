@@ -6,7 +6,7 @@
 /*   By: dmuller <dmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 17:33:38 by dmuller           #+#    #+#             */
-/*   Updated: 2023/12/12 14:11:43 by dmuller          ###   ########.fr       */
+/*   Updated: 2023/12/13 16:55:09 by dmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,83 @@ int check_directory(char *path)
 	return(0);
 }
 
-int check_file_args(char *path)
+int check_file_args(char *path, t_pars *file)
 {
-	if() == true)
+	int verif;
+
+	verif = 0;
+	args_utils(path, &verif, file);
+	if(verif != 6)
 	{
-		
+		printf("Error\nWrong number of arguments\n");
+		return(0);
 	}
+	else if(file->C && file->EA && file->F && file->NO && file->SO && file->WE)
+		return(1);
+	else
+		printf("Error\nArguments are not valid\n");
+	return(0);
 }
 
-int args_utils(char *path)
+int args_utils(char *path, int *verif, t_pars *file)
 {
-	
+	int fd;
+	char *line;
+
+	fd = open(path, O_RDONLY);
+	line = get_next_line(fd);
+	while(line && verif_line(line, verif, file))
+	{
+		free(line);
+		line = get_next_line(fd);
+	}
+	free(line);
+	return(0);
+}
+
+int	verif_line(char *line, int *verif, t_pars *file)
+{
+	int i;
+	i = skip_spaces(0, line);
+	if(line[i] == 'N' && line[i + 1] == 'O' && (line[i+2] == ' ' || line[i + 2] == '\t') && file->NO == NULL)
+	{
+		i = skip_spaces(i + 3, line);
+		file->NO = ft_substr(line, i, skip_end_spaces(line) - i);
+		*verif += 1;
+	}
+	else if(line[i] == 'S' && line[i + 1] == 'O' && (line[i + 2]== ' ' || line[i + 2] == '\t') && file->SO == NULL)
+	{
+		i = skip_spaces(i + 3, line);
+		file->SO = ft_substr(line, i, skip_end_spaces(line) - i);
+		*verif += 1;
+	}
+	else if(line[i] == 'W' && line[i + 1] == 'E' && (line[i + 2]== ' ' || line[i + 2] == '\t') && file->WE == NULL)
+	{
+		i = skip_spaces(i + 3, line);
+		file->WE = ft_substr(line, i, skip_end_spaces(line) - i);
+		*verif += 1;
+	}
+	else if(line[i] == 'E' && line[i + 1] == 'A' && (line[i + 2]== ' ' || line[i + 2] == '\t') && file->EA == NULL)
+	{
+		i = skip_spaces(i + 3, line);
+		file->EA = ft_substr(line, i, skip_end_spaces(line) - i);
+		*verif += 1;
+	}
+	else if(line[i] == 'F' && (line[i + 1]== ' ' || line[i + 1] == '\t') && file->F == NULL)
+	{
+		i = skip_spaces(i + 2, line);
+		file->F = ft_substr(line, i, skip_end_spaces(line) - i);
+		*verif += 1;
+	}
+	else if(line[i] == 'C' && (line[i + 1]== ' ' || line[i + 1] == '\t') && file->C == NULL)
+	{
+		i = skip_spaces(i + 2, line);
+		file->C = ft_substr(line, i, skip_end_spaces(line) - i);
+		*verif += 1;
+	}
+	else if(line[i] == ' ' || line[i] == '\t' || line[i] == '\n' || line[i] == '1')
+		return(*verif);
+	else
+		*verif += 1;
+	return(*verif);
 }

@@ -1,5 +1,5 @@
-NO ./north_texture
 SO ./south_texture
+NO ./north_texture
 WE ./west_texture
 EA ./east_texture
 

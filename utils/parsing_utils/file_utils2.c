@@ -1,28 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   file_utils2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmuller <dmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/09 17:33:09 by dmuller           #+#    #+#             */
-/*   Updated: 2023/12/13 15:13:25 by dmuller          ###   ########.fr       */
+/*   Created: 2023/12/13 16:20:45 by dmuller           #+#    #+#             */
+/*   Updated: 2023/12/13 16:36:50 by dmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-
-int	main(int argc, char **argv)
-{
-	t_pars file;
-
-	file.C = NULL;
-	file.EA = NULL;
-	file.F = NULL;
-	file.NO = NULL;
-	file.SO = NULL;
-	file.WE = NULL; //faire une fonction pour mettre tout a NULL
-	if (!check_args(argc) || !check_map(argv[1], &file))
-		exit(-1);
-	printf("CA MARCHE\n");
-}
+#include "../../cub3d.h"
