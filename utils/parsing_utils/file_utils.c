@@ -6,7 +6,7 @@
 /*   By: dmuller <dmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 17:33:38 by dmuller           #+#    #+#             */
-/*   Updated: 2023/12/13 16:55:09 by dmuller          ###   ########.fr       */
+/*   Updated: 2023/12/14 12:46:42 by dmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,19 @@ int check_directory(char *path)
 int check_file_args(char *path, t_pars *file)
 {
 	int verif;
+	int rgb_verif;
 
 	verif = 0;
-	args_utils(path, &verif, file);
+	rgb_verif = 0;
+	args_utils(path, &verif, &rgb_verif, file);
 	if(verif != 6)
 	{
 		printf("Error\nWrong number of arguments\n");
+		return(0);
+	}
+	if(rgb_verif != 2)
+	{
+		printf("Error\nWrong RGB colors for F or C\n");
 		return(0);
 	}
 	else if(file->C && file->EA && file->F && file->NO && file->SO && file->WE)
@@ -69,14 +76,14 @@ int check_file_args(char *path, t_pars *file)
 	return(0);
 }
 
-int args_utils(char *path, int *verif, t_pars *file)
+int args_utils(char *path, int *verif, int *rgb_verif, t_pars *file)
 {
 	int fd;
 	char *line;
 
 	fd = open(path, O_RDONLY);
 	line = get_next_line(fd);
-	while(line && verif_line(line, verif, file))
+	while(line && verif_line(line, verif, rgb_verif, file))
 	{
 		free(line);
 		line = get_next_line(fd);
@@ -85,7 +92,7 @@ int args_utils(char *path, int *verif, t_pars *file)
 	return(0);
 }
 
-int	verif_line(char *line, int *verif, t_pars *file)
+int	verif_line(char *line, int *verif, int *rgb_verif, t_pars *file)
 {
 	int i;
 	i = skip_spaces(0, line);
@@ -117,12 +124,14 @@ int	verif_line(char *line, int *verif, t_pars *file)
 	{
 		i = skip_spaces(i + 2, line);
 		file->F = ft_substr(line, i, skip_end_spaces(line) - i);
+		check_F_rgb_args(rgb_verif, file);
 		*verif += 1;
 	}
 	else if(line[i] == 'C' && (line[i + 1]== ' ' || line[i + 1] == '\t') && file->C == NULL)
 	{
 		i = skip_spaces(i + 2, line);
 		file->C = ft_substr(line, i, skip_end_spaces(line) - i);
+		check_C_rgb_args(rgb_verif, file);
 		*verif += 1;
 	}
 	else if(line[i] == ' ' || line[i] == '\t' || line[i] == '\n' || line[i] == '1')

@@ -6,7 +6,7 @@
 /*   By: dmuller <dmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 11:09:44 by dmuller           #+#    #+#             */
-/*   Updated: 2023/12/13 16:57:23 by dmuller          ###   ########.fr       */
+/*   Updated: 2023/12/14 12:51:21 by dmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,19 @@ int		ft_strcmp(char *s1, char *s2);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int     skip_spaces(int i, char *line);
 int     skip_end_spaces(char *line);
+int     ft_atoi(const char *str);
+
+/* ---- [ little_func2.c] ---- */
+
+int	wordcount(const char *s, char c, int opt, char **strs);
+int	wordlen(const char *s, char c, int i);
+char	*putword(const char *str, char charset, int i);
+char	**split2(const char *str, char charset, int j, int i);
+char	**ft_split(const char *str, char charset);
+
+/* ---- [ little_func3.c] ---- */
+
+int	ft_isdigit(int c);
 
 /* ---- [ parsing utils ] ---- */
 
@@ -66,10 +79,20 @@ int		check_cub(char *path);
 int		check_file(char *path);
 int		check_directory(char *path);
 int     check_file_args(char *path, t_pars *file);
-int     args_utils(char *path, int *verif, t_pars *file);
-int     verif_line(char *line, int *verif, t_pars *file);
+int     args_utils(char *path, int *verif, int *rgb_verif, t_pars *file);
+int     verif_line(char *line, int *verif, int *rgb_verif, t_pars *file);
 
 /* ---- [ file_utils2.c ] ---- */
+
+int     check_F_rgb_args(int *rgb_verif, t_pars *file);
+int     check_C_rgb_args(int *rgb_verif, t_pars *file);
+int     check_C_comma(t_pars *file);
+int     check_F_comma(t_pars *file);
+
+/* ---- [ file_utils3.c ] ---- */
+
+int     check_F_rgb_value(t_pars *file);
+int     check_C_rgb_value(t_pars *file);
 
 /* ================== */
 

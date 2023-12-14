@@ -6,7 +6,7 @@
 /*   By: dmuller <dmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 19:04:24 by dmuller           #+#    #+#             */
-/*   Updated: 2023/12/13 15:31:43 by dmuller          ###   ########.fr       */
+/*   Updated: 2023/12/14 10:00:01 by dmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,25 @@ int skip_end_spaces(char *line)
 	while(line[i] == ' ' || line[i] == '\t' || line[i] == '\n')
 		i--;
 	return(i + 1);
+}
+
+int	ft_atoi(const char *str)
+{
+	int	a;
+	int	b;
+	int	c;
+
+	a = 0;
+	b = 1;
+	c = 0;
+	while (str[a] == '\t' || str[a] == '\n' || str[a] == '\v'
+		|| str[a] == '\f' || str[a] == '\r' || str[a] == ' ')
+		a++;
+	if (str[a] == '-')
+		b = -1;
+	if (str[a] == '-' || str[a] == '+')
+		a++;
+	while (ft_isdigit(str[a]) && str[a])
+		c = (c * 10) + (str[a++] - '0');
+	return (c * b);
 }

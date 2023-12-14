@@ -8,10 +8,13 @@ SRCS = cub3d.c \
 		srcs/error/error_manager.c \
 		srcs/parsing/file_parsing.c \
 		utils/little_func/little_func.c \
-		utils/parsing_utils/file_utils.c \
+		utils/little_func/little_func2.c \
+		utils/little_func/little_func3.c \
 		gnl/get_next_line.c \
 		gnl/get_next_line_utils.c \
-		utils/parsing_utils/file_utils2.c
+		utils/parsing_utils/file_utils.c \
+		utils/parsing_utils/file_utils2.c \
+		utils/parsing_utils/file_utils3.c
 
 OBJS = ${SRCS:.c=.o}
 

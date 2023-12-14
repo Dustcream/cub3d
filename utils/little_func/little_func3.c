@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   little_func3.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmuller <dmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/09 17:33:09 by dmuller           #+#    #+#             */
-/*   Updated: 2023/12/14 12:48:16 by dmuller          ###   ########.fr       */
+/*   Created: 2023/12/14 11:09:23 by dmuller           #+#    #+#             */
+/*   Updated: 2023/12/14 11:10:32 by dmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../../cub3d.h"
 
-int	main(int argc, char **argv)
+int	ft_isdigit(int c)
 {
-	t_pars file;
-
-	file.C = NULL;
-	file.EA = NULL;
-	file.F = NULL;
-	file.NO = NULL;
-	file.SO = NULL;
-	file.WE = NULL; //faire une fonction pour mettre tout a NULL
-	if (!check_args(argc) || !check_map(argv[1], &file))
-		exit(-1);
-	printf("CA MARCHE\n");
-	//faire une fonction pour free les char * C, EA,... (si different de nul alors free)
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }
