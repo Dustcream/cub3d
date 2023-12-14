@@ -6,7 +6,7 @@
 /*   By: dmuller <dmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:20:45 by dmuller           #+#    #+#             */
-/*   Updated: 2023/12/14 13:27:10 by dmuller          ###   ########.fr       */
+/*   Updated: 2023/12/14 13:43:15 by dmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,12 @@ int check_F_rgb_args(int *rgb_verif, t_pars *file)
 	if(!check_F_rgb_value(file))
 		return(0);
 	rgb = ft_split(file->F, ',');
-	if((ft_atoi(rgb[0]) < 0 || ft_atoi(rgb[0]) > 255) || (ft_atoi(rgb[1]) < 0 || ft_atoi(rgb[1]) > 255) || (ft_atoi(rgb[2]) < 0 || ft_atoi(rgb[2]) > 255))
-		return(0);
-	*rgb_verif += 1;
+	if(rgb[0] && rgb[1] && rgb[2])
+	{
+		if((ft_atoi(rgb[0]) < 0 || ft_atoi(rgb[0]) > 255) || (ft_atoi(rgb[1]) < 0 || ft_atoi(rgb[1]) > 255) || (ft_atoi(rgb[2]) < 0 || ft_atoi(rgb[2]) > 255))
+			return(0);
+		*rgb_verif += 1;
+	}
 	while(rgb[i])
 		free(rgb[i++]);
 	free(rgb);
