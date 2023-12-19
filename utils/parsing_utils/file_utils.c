@@ -6,7 +6,7 @@
 /*   By: dmuller <dmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 17:33:38 by dmuller           #+#    #+#             */
-/*   Updated: 2023/12/14 14:54:51 by dmuller          ###   ########.fr       */
+/*   Updated: 2023/12/18 10:13:17 by dmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ int check_file_args(char *path, t_pars *file)
 int args_utils(char *path, int *verif, int *rgb_verif, t_pars *file)
 {
 	int fd;
-	int i;
 	char *line;
 
 	fd = open(path, O_RDONLY);
@@ -99,7 +98,7 @@ int	verif_line(char *line, int *verif, int *rgb_verif, t_pars *file)
 	i = skip_spaces(0, line);
 	printf("%d\n", line[i]);
 	if (line[i] == '\t' || line[i] == '\n' || line[i] == '\v' || line[i] == '\f' || line[i] == '\r' || line[i] == '1') 
-        return *verif;
+        *verif += 0;
 	else if(line[i] == 'N' && line[i + 1] == 'O' && (line[i+2] == ' ' || line[i + 2] == '\t') && file->NO == NULL)
 	{
 		i = skip_spaces(i + 3, line);

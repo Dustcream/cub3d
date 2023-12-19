@@ -6,7 +6,7 @@
 /*   By: dmuller <dmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 12:50:22 by dmuller           #+#    #+#             */
-/*   Updated: 2023/12/14 13:26:24 by dmuller          ###   ########.fr       */
+/*   Updated: 2023/12/18 11:59:03 by dmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,18 @@ int check_F_rgb_value(t_pars *file)
         j = 0;
     }
     return(1);
+}
+
+int check_map(char *path, t_pars *file)
+{
+    int fd;
+    char *line;
+
+    fd = open(path, O_RDONLY);
+    line = get_next_line(fd);
+    while(line && verif_map_line(line, file))
+    {
+        free(line);
+        line = get_next_line(fd);
+    }
 }
