@@ -6,7 +6,7 @@
 /*   By: dmuller <dmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 11:09:44 by dmuller           #+#    #+#             */
-/*   Updated: 2023/12/19 13:08:03 by dmuller          ###   ########.fr       */
+/*   Updated: 2023/12/14 12:51:21 by dmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <stdbool.h>
-# include <stdint.h>
 
 typedef struct s_pars
 {
@@ -30,22 +29,6 @@ typedef struct s_pars
     char *F;
     char *C;
 }   t_pars;
-
-typedef struct s_stuff
-{
-	uint32_t	xy[2];
-	uint32_t	wh[2];
-	int			t3;
-	int			t4;
-	int			fd;
-	int			x;
-	int			y;
-	int			*wd;
-	char		*buf;
-	int			h;
-	char		*temp;
-	char		*tmp;
-}	t_stuff;
 
 /* ================== */
 
@@ -110,14 +93,6 @@ int     check_F_comma(t_pars *file);
 
 int     check_F_rgb_value(t_pars *file);
 int     check_C_rgb_value(t_pars *file);
-
-/* ---- [ map_utils.c ] ---- */
-
-int		check_map(char *path, t_pars *file);
-char	**copy_map(int fd);
-int		*get_whpp(int fd);
-void	mini_init(int *h, int *fdd, int fd, char **buf);
-int		s_open(char *path);
 
 /* ================== */
 

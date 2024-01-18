@@ -1,12 +1,10 @@
-C 255,100,255
-F 255,200,222
-
 NO ./north_texture
 WE ./west_texture  
 EA ./east_texture
 SO ./south_texture
 
-
+F 100,200,122
+C 100,100,100
 
 1111111111
 1000000001

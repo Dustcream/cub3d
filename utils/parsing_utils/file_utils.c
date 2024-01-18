@@ -6,7 +6,7 @@
 /*   By: dmuller <dmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 17:33:38 by dmuller           #+#    #+#             */
-/*   Updated: 2023/12/18 10:13:17 by dmuller          ###   ########.fr       */
+/*   Updated: 2024/01/18 13:43:20 by dmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,9 @@ int args_utils(char *path, int *verif, int *rgb_verif, t_pars *file)
 
 	fd = open(path, O_RDONLY);
 	line = get_next_line(fd);
-	while(line && verif_line(line, verif, rgb_verif, file))
+	while(line)
 	{
+		verif_line(line, verif, rgb_verif, file);
 		free(line);
 		line = get_next_line(fd);
 	}
@@ -96,7 +97,6 @@ int	verif_line(char *line, int *verif, int *rgb_verif, t_pars *file)
 {
 	int i;
 	i = skip_spaces(0, line);
-	printf("%d\n", line[i]);
 	if (line[i] == '\t' || line[i] == '\n' || line[i] == '\v' || line[i] == '\f' || line[i] == '\r' || line[i] == '1') 
         *verif += 0;
 	else if(line[i] == 'N' && line[i + 1] == 'O' && (line[i+2] == ' ' || line[i + 2] == '\t') && file->NO == NULL)
