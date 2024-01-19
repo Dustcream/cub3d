@@ -30,6 +30,11 @@ typedef struct s_pars
     char *C;
 }   t_pars;
 
+typedef struct s_map
+{
+    char **map;
+}   t_pars;
+
 /* ================== */
 
 /* ---- [ srcs ] ---- */
@@ -93,6 +98,10 @@ int     check_F_comma(t_pars *file);
 
 int     check_F_rgb_value(t_pars *file);
 int     check_C_rgb_value(t_pars *file);
+
+/* ---- [ map_utils.c ] ---- */
+
+int     check_map_validity(char *path, t_pars *file);
 
 /* ================== */
 

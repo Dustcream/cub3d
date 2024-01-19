@@ -37,6 +37,8 @@ int	check_map(char *path, t_pars *file)
 		return(0);
 	if(!check_file_args(path, file))
 		return(0);
+	if(!check_map_validity(path, file))
+		return(0);
 	else
 		return (1);
 }
