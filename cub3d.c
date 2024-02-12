@@ -6,7 +6,7 @@
 /*   By: dmuller <dmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 17:33:09 by dmuller           #+#    #+#             */
-/*   Updated: 2024/01/16 16:57:00 by dmuller          ###   ########.fr       */
+/*   Updated: 2024/02/08 17:53:11 by dmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	main(int argc, char **argv)
 	file.NO = NULL;
 	file.SO = NULL;
 	file.WE = NULL; //faire une fonction pour mettre tout a NULL
+	//file.map = NULL;
 	if (!check_args(argc) || !check_map(argv[1], &file))
 		exit(-1);
 	printf("CA MARCHE\n");

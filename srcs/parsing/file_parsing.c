@@ -6,7 +6,7 @@
 /*   By: dmuller <dmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 17:33:33 by dmuller           #+#    #+#             */
-/*   Updated: 2024/01/16 16:45:39 by dmuller          ###   ########.fr       */
+/*   Updated: 2024/02/08 17:39:50 by dmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	check_map(char *path, t_pars *file)
 		return(0);
 	if(!check_file_args(path, file))
 		return(0);
-	if(!check_map_validity(path, file))
+	if(!check_map_format(path, file))
 		return(0);
 	else
 		return (1);

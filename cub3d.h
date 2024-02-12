@@ -6,7 +6,7 @@
 /*   By: dmuller <dmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 11:09:44 by dmuller           #+#    #+#             */
-/*   Updated: 2023/12/14 12:51:21 by dmuller          ###   ########.fr       */
+/*   Updated: 2024/02/08 17:52:50 by dmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,7 @@ typedef struct s_pars
     char *EA;
     char *F;
     char *C;
-}   t_pars;
-
-typedef struct s_map
-{
-    char **map;
+    char *map[100];
 }   t_pars;
 
 /* ================== */
@@ -101,7 +97,8 @@ int     check_C_rgb_value(t_pars *file);
 
 /* ---- [ map_utils.c ] ---- */
 
-int     check_map_validity(char *path, t_pars *file);
+int     check_map_format(char *path, t_pars *file);
+void    skip_no_map(char **line, t_pars *file, int fd);
 
 /* ================== */
 
