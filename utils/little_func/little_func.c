@@ -6,7 +6,7 @@
 /*   By: dmuller <dmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 19:04:24 by dmuller           #+#    #+#             */
-/*   Updated: 2023/12/14 10:00:01 by dmuller          ###   ########.fr       */
+/*   Updated: 2024/02/27 14:35:47 by dmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 int skip_spaces(int i, char *line)
 {
-	if(line[i] == ' ' || line[i] == '\t')
-	{
-		while(line[i] == ' ' || line[i] == '\t')
-			i++;
-	}
+	while(line[i] == ' ' || line[i] == '\t')
+		i++;
 	return(i);
 }
 
