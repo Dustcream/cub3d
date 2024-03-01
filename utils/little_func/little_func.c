@@ -6,7 +6,7 @@
 /*   By: dmuller <dmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 19:04:24 by dmuller           #+#    #+#             */
-/*   Updated: 2024/02/27 14:35:47 by dmuller          ###   ########.fr       */
+/*   Updated: 2024/03/01 11:08:00 by dmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,21 +47,21 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (rep);
 }
 
-int skip_spaces(int i, char *line)
+int	skip_spaces(int i, char *line)
 {
-	while(line[i] == ' ' || line[i] == '\t')
+	while (line[i] == ' ' || line[i] == '\t')
 		i++;
-	return(i);
+	return (i);
 }
 
-int skip_end_spaces(char *line)
+int	skip_end_spaces(char *line)
 {
-	int i;
-	
+	int	i;
+
 	i = ft_strlen(line) - 1;
-	while(line[i] == ' ' || line[i] == '\t' || line[i] == '\n')
+	while (line[i] == ' ' || line[i] == '\t' || line[i] == '\n')
 		i--;
-	return(i + 1);
+	return (i + 1);
 }
 
 int	ft_atoi(const char *str)

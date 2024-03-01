@@ -6,7 +6,7 @@
 /*   By: dmuller <dmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 17:33:38 by dmuller           #+#    #+#             */
-/*   Updated: 2024/02/29 18:52:47 by dmuller          ###   ########.fr       */
+/*   Updated: 2024/03/01 11:35:54 by dmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,68 +23,70 @@ int	check_cub(char *path)
 	return (0);
 }
 
-int check_file(char *path)
+int	check_file(char *path)
 {
 	int	fd;
-	
-	if((fd = open(path, O_RDONLY)) == -1)
+
+	fd = open(path, O_RDONLY);
+	if (fd == -1)
 		printf("Error\nCan't open the file\n");
 	else
 	{
 		close(fd);
-		return(1);
+		return (1);
 	}
-	return(0);
+	return (0);
 }
 
-int check_directory(char *path)
+int	check_directory(char *path)
 {
-	int fd;
+	int	fd;
 
-	if((fd = open(path, __O_DIRECTORY)) != -1)
+	fd = open(path, __O_DIRECTORY);
+	if (fd != -1)
 		printf("Error\nfile is a directory\n");
 	else
 	{
 		close(fd);
-		return(1);
+		return (1);
 	}
-	return(0);
+	return (0);
 }
 
-int check_file_args(char *path, t_pars *file)
+int	check_file_args(char *path, t_pars *file)
 {
-	int verif;
-	int rgb_verif;
+	int	verif;
+	int	rgb_verif;
 
 	verif = 0;
 	rgb_verif = 0;
 	args_utils(path, &verif, &rgb_verif, file);
 	printf("%d\n", verif);
-	if(verif != 6)
+	if (verif != 6)
 	{
 		printf("Error\nWrong number of arguments\n");
-		return(0);
+		return (0);
 	}
-	if(rgb_verif != 2)
+	if (rgb_verif != 2)
 	{
 		printf("Error\nWrong RGB colors for F or C\n");
-		return(0);
+		return (0);
 	}
-	else if(file->C && file->EA && file->F && file->NO && file->SO && file->WE)
-		return(1);
+	else if (file->c && file->ea && file->f && file->no && file->so && file->we)
+		return (1);
 	else
 		printf("Error\nArguments are not valid\n");
-	return(0);
+	return (0);
 }
 
-int args_utils(char *path, int *verif, int *rgb_verif, t_pars *file)
+int	args_utils(char *path, int *verif, int *rgb_verif, t_pars *file)
 {
-	int fd;
-	char *line;
+	int		fd;
+	char	*line;
 
 	fd = open(path, O_RDONLY);
 	line = get_next_line(fd);
-	while(line)
+	while (line)
 	{
 		verif_line(line, verif, file);
 		verif_line2(line, verif, rgb_verif, file);
@@ -92,6 +94,5 @@ int args_utils(char *path, int *verif, int *rgb_verif, t_pars *file)
 		line = get_next_line(fd);
 	}
 	free(line);
-	return(0);
+	return (0);
 }
-

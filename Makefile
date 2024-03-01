@@ -5,7 +5,6 @@ CC = @gcc
 CFLAGS = -Wall -Werror -Wextra
 
 SRCS = cub3d.c \
-		srcs/error/error_manager.c \
 		srcs/parsing/file_parsing.c \
 		utils/little_func/little_func.c \
 		utils/little_func/little_func2.c \

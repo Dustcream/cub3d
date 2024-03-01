@@ -10,3 +10,4 @@ Fait :
 - Parsing des arguments
 - Verifier si le fichier peut etre ouvert et est au bon format
 - Parsing de la map
+- Free les mallocs
