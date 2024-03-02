@@ -15,7 +15,8 @@ SRCS = cub3d.c \
 		utils/parsing_utils/file_utils2.c \
 		utils/parsing_utils/file_utils3.c \
 		utils/parsing_utils/file_utils4.c \
-		utils/parsing_utils/map_utils.c
+		utils/parsing_utils/map_utils.c \
+		utils/parsing_utils/map_utils2.c
 
 OBJS = ${SRCS:.c=.o}
 

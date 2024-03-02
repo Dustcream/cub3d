@@ -6,7 +6,7 @@
 /*   By: dmuller <dmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 18:24:35 by dmuller           #+#    #+#             */
-/*   Updated: 2024/03/01 11:35:46 by dmuller          ###   ########.fr       */
+/*   Updated: 2024/03/02 15:41:15 by dmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	verif_line2(char *line, int *verif, int *rgb_verif, t_pars *file)
 	{
 		i = skip_spaces(i + 2, line);
 		file->f = ft_substr(line, i, skip_end_spaces(line) - i);
-		check_F_rgb_args(rgb_verif, file);
+		check_rgb_args1(rgb_verif, file);
 		*verif += 1;
 	}
 	else if (line[i] == 'C' && (line[i + 1] == ' '
@@ -44,7 +44,7 @@ int	verif_line2(char *line, int *verif, int *rgb_verif, t_pars *file)
 	{
 		i = skip_spaces(i + 2, line);
 		file->c = ft_substr(line, i, skip_end_spaces(line) - i);
-		check_C_rgb_args(rgb_verif, file);
+		check_rgb_args2(rgb_verif, file);
 		*verif += 1;
 	}
 	return (*verif);

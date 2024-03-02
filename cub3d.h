@@ -6,7 +6,7 @@
 /*   By: dmuller <dmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 11:09:44 by dmuller           #+#    #+#             */
-/*   Updated: 2024/03/01 11:36:11 by dmuller          ###   ########.fr       */
+/*   Updated: 2024/03/02 15:44:28 by dmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,10 @@ void	skip_no_map(char **line, t_pars *file, int fd);
 int		check_map_format(t_pars *file);
 int		is_valid_char(t_pars *file, int i, int x);
 int		is_map_character(char c);
+
+/* ---- [ map_utils2.c ] ---- */
+
+int		map_copy2(t_pars *file, int fd, char *line);
 
 /* ================== */
 

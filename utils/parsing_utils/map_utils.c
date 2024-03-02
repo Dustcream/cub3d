@@ -6,7 +6,7 @@
 /*   By: dmuller <dmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 17:45:50 by dmuller           #+#    #+#             */
-/*   Updated: 2024/03/01 11:53:08 by dmuller          ###   ########.fr       */
+/*   Updated: 2024/03/02 15:44:21 by dmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,37 +16,13 @@ int	map_copy(char *path, t_pars *file)
 {
 	int		fd;
 	char	*line;
-	char	**copy;
-	int		i;
-	int		x;
 
 	fd = open(path, O_RDONLY);
 	line = get_next_line(fd);
 	skip_no_map(&line, file, fd);
-	i = 0;
 	file->map = malloc(sizeof(char *));
 	file->map[0] = 0;
-	while (line)
-	{
-		copy = malloc((i + 2) * sizeof(char *));
-		if (!copy)
-		{
-			printf("Error\nMalloc failed during parsing\n");
-			return (0);
-		}
-		x = 0;
-		while (x < i)
-		{
-			copy[x] = file->map[x];
-			x++;
-		}
-		copy[x] = ft_strdup(line);
-		copy[x + 1] = 0;
-		free(file->map);
-		file->map = copy;
-		line = get_next_line(fd);
-		i++;
-	}
+	map_copy2(file, fd, line);
 	return (1);
 }
 

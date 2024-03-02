@@ -6,7 +6,7 @@
 /*   By: dmuller <dmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 12:50:22 by dmuller           #+#    #+#             */
-/*   Updated: 2024/03/01 11:35:54 by dmuller          ###   ########.fr       */
+/*   Updated: 2024/03/02 15:39:32 by dmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,16 +72,16 @@ int	verif_line(char *line, int *verif, t_pars *file)
 		*verif += 0;
 	else if (line[i] == 'N' && line[i + 1] == 'O' && (line[i + 2] == ' '
 			|| line[i + 2] == '\t') && file->no == NULL)
-		stock_NO(file, i, line, verif);
+		savepos_no(file, i, line, verif);
 	else if (line[i] == 'S' && line[i + 1] == 'O' && (line[i + 2] == ' '
 			|| line[i + 2] == '\t') && file->so == NULL)
-		stock_SO(file, i, line, verif);
+		savepos_so(file, i, line, verif);
 	else if (line[i] == 'W' && line[i + 1] == 'E' && (line[i + 2] == ' '
 			|| line[i + 2] == '\t') && file->we == NULL)
-		stock_WE(file, i, line, verif);
+		savepos_we(file, i, line, verif);
 	else if (line[i] == 'E' && line[i + 1] == 'A' && (line[i + 2] == ' '
 			|| line[i + 2] == '\t') && file->ea == NULL)
-		stock_EA(file, i, line, verif);
+		savepos_ea(file, i, line, verif);
 	else if ((line[i] == 'F' && (line[i + 1] == ' ' || line[i + 1] == '\t')
 			&& file->f == NULL) || (line[i] == 'C' && (line[i + 1] == ' '
 				|| line[i + 1] == '\t') && file->c == NULL))

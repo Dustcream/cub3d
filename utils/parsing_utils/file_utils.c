@@ -6,7 +6,7 @@
 /*   By: dmuller <dmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 17:33:38 by dmuller           #+#    #+#             */
-/*   Updated: 2024/03/01 11:35:54 by dmuller          ###   ########.fr       */
+/*   Updated: 2024/03/02 15:44:54 by dmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ int	check_file_args(char *path, t_pars *file)
 	verif = 0;
 	rgb_verif = 0;
 	args_utils(path, &verif, &rgb_verif, file);
-	printf("%d\n", verif);
 	if (verif != 6)
 	{
 		printf("Error\nWrong number of arguments\n");
